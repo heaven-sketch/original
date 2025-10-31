@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mates Medicinales Instantáneos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/TE7.jpg" type="image/x-icon">
+
+    <!-- LIBRERÍAS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --naranja: #f88f32;
+            --verde: #3f8c4b;
+            --beige: #fff8ec;
+            --dorado: #ffca7a;
+            --texto: #2b2b2b;
+            --sombra: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: linear-gradient(150deg, #fff9f3, #ffe9cc, #fff3e0);
+            font-family: "Poppins", "Segoe UI", sans-serif;
+            color: var(--texto);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        @keyframes flotar {
+            0%,100% {transform: translateY(0);}
+            50% {transform: translateY(-8px);}
+        }
+        @keyframes fadeIn {
+            from {opacity:0; transform: translateY(20px);}
+            to {opacity:1; transform: translateY(0);}
+        }
+
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 248, 236, 0.9);
+            border-bottom: 4px solid var(--naranja);
+            box-shadow: 0 3px 15px var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav a {
+            font-weight: 600;
+            color: var(--verde);
+            padding: 12px 18px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: var(--naranja);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,.15);
+        }
+
+        .hero {
+            background: linear-gradient(120deg, var(--verde), var(--naranja));
+            color: white;
+            padding: 80px 15px;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.15);
+        }
+        .hero h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            animation: fadeIn 1.5s ease;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 10px auto;
+            opacity: 0.9;
+        }
+
+        .cta-wrap {
+            margin-top: 25px;
+        }
+        .cta-btn {
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 10px 24px;
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            background: #fff;
+            color: var(--naranja);
+            transform: translateY(-3px);
+        }
+
+        .carousel-item img {
+            border-radius: 22px;
+            border: 6px solid #fff;
+            box-shadow: 0 15px 35px rgba(0,0,0,.2);
+        }
+        .carousel-caption h5 { font-weight: 700; }
+        .carousel-caption p { text-shadow: 0 2px 8px rgba(0,0,0,.4); }
+
+        .section {
+            background: var(--beige);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
+            padding: 40px 30px;
+            margin: 60px auto;
+            width: min(1100px, 95%);
+            animation: fadeIn 1.2s ease;
+        }
+        .section h3 {
+            color: var(--verde);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .card-product {
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,.08);
+            transition: all .4s ease;
+        }
+        .card-product:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,.15);
+        }
+        .card-product img {
+            height: 220px;
+            object-fit: cover;
+        }
+        .card-body h5 { color: var(--verde); font-weight: 700; }
+        .price {
+            color: var(--naranja);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .blend-box {
+            background: #fff;
+            border: 1px dashed var(--naranja);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all .3s ease;
+        }
+        .blend-box:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: translateY(-4px); }
+
+        .benefit i {
+            font-size: 2.5rem;
+            color: var(--naranja);
+            margin-bottom: 10px;
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        footer {
+            background: linear-gradient(90deg, var(--verde), var(--naranja));
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            border-top: 3px solid #fdd8aa;
+            font-size: 15px;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .carousel-item img { height: 260px; }
+        }
+    </style>
+</head>
+<audio controls autoplay loop>
+  <source src="ethereal.mp3">
+
+</audio>
+  
+
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top" style="background: linear-gradient(90deg, #00b86b, #ff9900);">
+  <div class="container">
+    <!-- LOGO -->
+    <a class="navbar-brand fw-bold text-white" href="index.html">
+      <i class="fa-solid fa-leaf me-2"></i>Venta de Mates Medicinales
+    </a>
+
+    <!-- BOTÓN MÓVIL -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- MENÚ -->
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="NOSOTROS.HTML">Nosotros</a>
+        </li>
+
+        <!-- MENÚ DESPLEGABLE -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Productos
+          </a>
+          <ul class="dropdown-menu border-0 shadow-lg animate_animated animate_fadeIn" aria-labelledby="productosDropdown">
+            <li><a class="dropdown-item" href="#">Té Negro</a></li>
+            <li><a class="dropdown-item" href="#">Té Verde</a></li>
+            <li><a class="dropdown-item" href="#">Mates de Hierbas</a></li>
+            <li><a class="dropdown-item" href="#">Infusiones Andinas</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="btn btn-warning ms-3 text-white fw-semibold shadow-sm" href="pideahora.html">
+            <i class="fa-solid fa-cart-plus me-2"></i>Pide Ahora
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+    .navbar {
+      transition: all 0.4s ease;
+    }
+
+    /* Enlaces del menú */
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin: 0 8px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 2px;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 60%;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffe9c6 !important;
+      transform: translateY(-2px);
+    }
+
+    /* Dropdown personalizado */
+    .dropdown-menu {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .dropdown-item {
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(90deg, rgba(0,184,107,0.1), rgba(255,153,0,0.1));
+      color: #00b86b;
+      transform: translateX(5px);
+    }
+
+    /* Botón "Pide Ahora" */
+    .btn-warning {
+      background-color: #ff9900 !important;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-warning:hover {
+      background-color: #ffb347 !important;
+      transform: translateY(-2px);
+    }
+
+    /* Navbar sticky efecto al hacer scroll */
+    .navbar.scrolled {
+      background: linear-gradient(90deg, #009d5f, #ff8800);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Icono del navbar-toggler blanco */
+    .navbar-toggler {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+  </style>
+
+  <!-- ANIMACIONES CSS (Animate.css) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- SCRIPT PARA EFECTO SCROLL -->
+  <script>
+    window.addEventListener("scroll", function() {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+</nav>
+
+<section class="hero">
+    <h1 data-aos="fade-up">VENTA DE MATES ISTANTANEOS</h1>
+    <p data-aos="fade-up" data-aos-delay="100">
+        Donde la sabiduría ancestral y la innovación moderna se unen en cada taza de té.  
+        Descubre el equilibrio perfecto entre sabor, bienestar y naturaleza.
+    </p>
+    <div class="cta-wrap">
+        <button class="cta-btn" onclick="location.href='NOSOTROS.HTML'">Nosotros</button>
+        <button class="cta-btn" onclick="location.href='PIDEAHORA1.HTML'">Pide Ahora</button>
+    </div>
+</section>
+
+<div id="carouselExampleCaptions" class="carousel slide w-75 mx-auto mt-5 rounded-4 shadow-lg overflow-hidden" data-bs-ride="carousel" data-bs-interval="4000">
+
+  <div class="carousel-inner rounded-4">
+
+    <!-- SLIDE 1 -->
+    <div class="carousel-item active" data-aos="zoom-in">
+      <img src="imagenes/TE14.webp" class="d-block w-100 carousel-img" alt="Manzanilla y Menta">
+      <div class="carousel-caption custom-caption">
+        <h5>Manzanilla + Menta</h5>
+        <p>Calma, aroma y frescura digestiva.</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="carousel-item" data-aos="zoom-in" data-aos-delay="150">
+      <img src="imagenes/TE11.jpeg" class="d-block w-100 carousel-img" alt="Cedrón y Muña">
+      <div class="carousel-caption custom-caption">
+        <h5>Cedrón + Muña</h5>
+        <p>Vitalidad y concentración natural.</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="carousel-item" data-aos="zoom-in" data-aos-delay="300">
+      <img src="imagenes/TE5.jpg" class="d-block w-100 carousel-img" alt="Té de Coca">
+      <div class="carousel-caption custom-caption">
+        <h5>Té de Coca</h5>
+        <p>Energía andina que te conecta con tus raíces.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLES -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </button>
+
+  <!-- INDICADORES -->
+  <div class="carousel-indicators mb-0">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+    /* Imagen con efecto zoom y filtro suave */
+    .carousel-img {
+      height: 500px;
+      object-fit: cover;
+      filter: brightness(85%);
+      transition: transform 1.8s ease, filter 1s ease;
+    }
+
+    .carousel-item.active .carousel-img {
+      transform: scale(1.05);
+      filter: brightness(100%);
+    }
+
+    /* Textos con fondo degradado semitransparente */
+    .custom-caption {
+      background: linear-gradient(90deg, rgba(0,201,125,0.8), rgba(255,179,71,0.8));
+      border-radius: 15px;
+      padding: 15px 20px;
+      backdrop-filter: blur(5px);
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .custom-caption h5 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .custom-caption p {
+      color: #f8f9fa;
+      font-size: 1rem;
+    }
+
+    /* Indicadores redondos y con color temático */
+    .carousel-indicators [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #fff;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-indicators .active {
+      background-color: #00c97d;
+      opacity: 1;
+    }
+
+    /* Botones de control personalizados */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 201, 125, 0.7);
+      border-radius: 50%;
+      padding: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+      background-color: rgba(255, 140, 0, 0.8);
+    }
+
+    /* Animación de fade-up en captions */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sombra y borde suave */
+    .carousel {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, rgba(0,201,125,0.1), rgba(255,179,71,0.1));
+    }
+  </style>
+
+  <!-- LIBRERÍA AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+</div>
+
+
+
+
+
+<section class="section text-center py-5" data-aos="fade-up" style="background: linear-gradient(135deg, #ffb347, #00c97d);">
+
+  <h3 class="fw-bold text-light mb-3"><i class="fa-solid fa-mug-hot me-2"></i>Nuestros  Tés</h3>
+  <p class="text-light mb-5">Seleccionamos plantas con un buen aroma y sabor para iniciar el dia.</p>
+
+  <div class="container">
+    <div class="row g-4 mt-4 justify-content-center">
+
+      <!-- TARJETA 1 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="imagenes/TE2.jpg" alt="Manzanilla + Menta">
+          <div class="card-body">
+            <h5>Canela y Flor de Jamaica</h5>
+            <p>Un sabor unico para iniciar el dia.</p>
+            <div class="price">Bs. 14</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 2 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="imagenes/TE3.jpg" alt="Cedrón + Muña">
+          <div class="card-body">
+            <h5>Te Negro Energizante</h5>
+            <p>Refrescante y energizante.</p>
+            <div class="price">Bs. 12</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 3 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="imagenes/tehelado.jpg" alt="Té de Coca">
+          <div class="card-body">
+            <h5>Té Frio Refrescante</h5>
+            <p>Perfecta para el Calor.</p>
+            <div class="price">Bs. 13</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+  .card-product {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+  }
+
+  /* Imagen */
+  .card-product img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 1s ease;
+  }
+
+  /* Hover con zoom suave */
+  .card-product:hover img {
+    transform: scale(1.08);
+  }
+
+  /* Hover de la tarjeta */
+  .card-product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 165, 0, 0.4);
+  }
+
+  /* Contenido */
+  .card-product .card-body {
+    padding: 20px;
+  }
+
+  .card-product h5 {
+    color: #00a86b;
+    font-weight: 700;
+  }
+
+  .card-product p {
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  .card-product .price {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #ff8c00;
+    font-weight: bold;
+  }
+
+  /* Animación flotante leve */
+  .animate-card {
+    animation: floatCard 5s ease-in-out infinite;
+  }
+
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  </style>
+
+  <!-- LIBRERÍA AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+
+</section>
+
+
+
+
+
+<section class="section text-center py-5" data-aos="fade-up" style="background: linear-gradient(135deg, #00c97d, #ffb347);">
+
+  <h3 class="fw-bold text-light mb-3"><i class="fa-solid fa-mug-hot me-2"></i>Nuestros Mates</h3>
+  <p class="text-light mb-5">Seleccionamos plantas medicinales andinas para brindarte infusiones saludables, deliciosas y responsables con el planeta.</p>
+
+  <div class="container">
+    <div class="row g-4 mt-4 justify-content-center">
+
+      <!-- TARJETA 1 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="imagenes/manzanilla.webp" alt="Manzanilla + Menta">
+          <div class="card-body">
+            <h5>Manzanilla + Menta</h5>
+            <p>Ideal para relajarte y cuidar tu digestión.</p>
+            <div class="price">Bs. 13</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 2 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="imagenes/cedron.webp" alt="Cedrón + Muña">
+          <div class="card-body">
+            <h5>Cedrón + Muña</h5>
+            <p>Refrescante, antioxidante y energizante.</p>
+            <div class="price">Bs. 12</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 3 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="imagenes/coca.jpg" alt="Té de Coca">
+          <div class="card-body">
+            <h5>Mate de Coca</h5>
+            <p>Tradición andina, perfecta para la altura.</p>
+            <div class="price">Bs. 13</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+  .card-product {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+  }
+
+  /* Imagen */
+  .card-product img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 1s ease;
+  }
+
+  /* Hover con zoom suave */
+  .card-product:hover img {
+    transform: scale(1.08);
+  }
+
+  /* Hover de la tarjeta */
+  .card-product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 201, 125, 0.4);
+  }
+
+  /* Contenido */
+  .card-product .card-body {
+    padding: 20px;
+  }
+
+  .card-product h5 {
+    color: #ff8c00; /* Naranja cálido */
+    font-weight: 700;
+  }
+
+  .card-product p {
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  .card-product .price {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #00a86b; /* Verde fuerte */
+    font-weight: bold;
+  }
+
+  /* Animación flotante leve */
+  .animate-card {
+    animation: floatCard 5s ease-in-out infinite;
+  }
+
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  </style>
+
+  <!-- LIBRERÍA AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+
+</section>
+
+
+
+
+<section class="section py-5 text-center" style="background: linear-gradient(135deg, #00c97d, #ffb347); color: #fff;" data-aos="fade-up">
+
+  <h3 class="fw-bold mb-4"><i class="fa-solid fa-seedling me-2"></i>Beneficios Naturales</h3>
+
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+
+      <!-- BENEFICIO 1 -->
+      <div class="col-md-4">
+        <div class="benefit-card" data-aos="fade-right" data-aos-delay="100">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <h5>Bienestar Saludable</h5>
+          <p>Infusiones que fortalecen tu cuerpo y mente.</p>
+        </div>
+      </div>
+
+      <!-- BENEFICIO 2 -->
+      <div class="col-md-4">
+        <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h5>Sostenibles</h5>
+          <p>Empaques biodegradables y filtrantes reutilizables.</p>
+        </div>
+      </div>
+
+      <!-- BENEFICIO 3 -->
+      <div class="col-md-4">
+        <div class="benefit-card" data-aos="fade-left" data-aos-delay="300">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-mountain-sun"></i>
+          </div>
+          <h5>Origen Andino</h5>
+          <p>Apoyamos a productores bolivianos locales.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+    .benefit-card {
+      background: #ffffff;
+      color: #333;
+      border-radius: 20px;
+      padding: 40px 25px;
+      transition: all 0.5s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hover con brillo y elevación */
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(255, 165, 0, 0.4);
+    }
+
+    /* Íconos animados */
+    .icon-wrapper {
+      background: linear-gradient(135deg, #ffb347, #00c97d);
+      color: #fff;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px auto;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      transition: transform 0.6s ease;
+    }
+
+    .benefit-card:hover .icon-wrapper {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    .benefit-card h5 {
+      color: #00a86b;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .benefit-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Efecto flotante suave */
+    .benefit-card {
+      animation: floatCard 5s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+
+  <!-- LIBRERÍA AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+
+</section>
+<section class="section text-center py-5" data-aos="fade-up" style="background: linear-gradient(135deg, #00c97d, #ffb347);">
+
+  <h3 class="fw-bold text-light mb-3"><i class="fa-solid fa-mug-hot me-2"></i>Para una Mejor Experiencia</h3>
+  <p class="text-light mb-5">Seleccionamos algunos acompañantes para disfrutar mas de nuestro producto.</p>
+
+  <div class="container">
+    <div class="row g-4 mt-4 justify-content-center">
+
+      <!-- TARJETA 1 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="imagenes/chancaca.jpg" alt="Manzanilla + Menta">
+          <div class="card-body">
+            <h5>Chancaca</h5>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 2 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="imagenes/miel.jpg" alt="Cedrón + Muña">
+          <div class="card-body">
+            <h5>Miel</h5>
+          
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA 3 -->
+      <div class="col-md-4">
+        <div class="card card-product animate-card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="imagenes/stevia.jpg" alt="Té de Coca">
+          <div class="card-body">
+            <h5>Stevia</h5>
+       
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+  .card-product {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+  }
+
+  /* Imagen */
+  .card-product img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 1s ease;
+  }
+
+  /* Hover con zoom suave */
+  .card-product:hover img {
+    transform: scale(1.08);
+  }
+
+  /* Hover de la tarjeta */
+  .card-product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 201, 125, 0.4);
+  }
+
+  /* Contenido */
+  .card-product .card-body {
+    padding: 20px;
+  }
+
+  .card-product h5 {
+    color: #ff8c00; /* Naranja cálido */
+    font-weight: 700;
+  }
+
+  .card-product p {
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  .card-product .price {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #00a86b; /* Verde fuerte */
+    font-weight: bold;
+  }
+
+  /* Animación flotante leve */
+  .animate-card {
+    animation: floatCard 5s ease-in-out infinite;
+  }
+
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  </style>
+
+  <!-- LIBRERÍA AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+
+</section>
+
+
+
+<section class="section py-5" data-aos="fade-up" style="background: linear-gradient(135deg, #00c97d, #ffb347); color: #fff;">
+
+  <div class="container">
+    <div class="row g-4 align-items-center">
+
+      <!-- TEXTO -->
+      <div class="col-md-7 text-center text-md-start" data-aos="fade-right" data-aos-delay="100">
+        <h3 class="fw-bold"><i class="fa-solid fa-flask me-2"></i>Crea tu Infusión</h3>
+        <p class="lead">Personaliza tu experiencia: elige base, tamaño y endulzante para preparar tu mate perfecto.</p>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="col-md-5" data-aos="fade-left" data-aos-delay="200">
+        <div class="blend-box p-4 rounded-4 shadow-lg">
+          <label class="form-label fw-semibold text-success">Base</label>
+          <select class="form-select mb-3">
+            <option>Té Negro</option>
+            <option>Té Verde</option>
+            <option>Manzanilla</option>
+            <option>Coca</option>
+            <option>Menta / Hierbabuena</option>
+          </select>
+
+          <label class="form-label fw-semibold text-success">Tamaño</label>
+          <select class="form-select mb-3">
+            <option>200 ml</option>
+            <option>350 ml</option>
+            <option>500 ml</option>
+          </select>
+
+          <label class="form-label fw-semibold text-success">Endulzante</label>
+          <select class="form-select mb-4">
+            <option>Sin azúcar</option>
+            <option>Azúcar morena</option>
+            <option>Miel de abeja</option>
+            <option>Stevia</option>
+          </select>
+
+          <button class="btn-custom w-100" onclick="window.location.href='pideahora.html';">
+            <i class="fa-solid fa-cart-plus me-2"></i>Agregar y Pedir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTILOS -->
+  <style>
+    .blend-box {
+      background: #ffffff;
+      color: #333;
+      border: 3px solid #00c97d;
+      transition: all 0.5s ease;
+      position: relative;
+    }
+
+    /* Hover con sombra verde-naranja */
+    .blend-box:hover {
+      box-shadow: 0 0 25px rgba(255, 165, 0, 0.4);
+      transform: translateY(-5px);
+    }
+
+    /* Inputs */
+    .form-select {
+      border-radius: 10px;
+      border: 1px solid #00a86b;
+      transition: all 0.3s ease;
+    }
+
+    .form-select:focus {
+      border-color: #ff8c00;
+      box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+    }
+
+    /* Botón personalizado */
+    .btn-custom {
+      background: linear-gradient(90deg, #ff8c00, #00a86b);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Efecto brillo en el botón */
+    .btn-custom::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75px;
+      width: 50px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-25deg);
+      transition: all 0.7s ease;
+    }
+
+    .btn-custom:hover::after {
+      left: 120%;
+    }
+
+    .btn-custom:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
+    }
+
+    /* Animación flotante leve */
+    .blend-box {
+      animation: floatBox 5s ease-in-out infinite;
+    }
+
+    @keyframes floatBox {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+
+  <!-- LIBRERÍA AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+
+</section>
+
+<footer>
+  © 2025 ESSENCE AURA • Mates Medicinales Instantáneos  
+  <br>Tradición, bienestar y sabor natural.
+</footer>
+
+<!-- ✅ JS Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+</body>
+</html>

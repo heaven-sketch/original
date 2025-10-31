@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESSENCE AURA | Pide Ahora</title>
+<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="shortcut icon" href="img/TE7.jpg" type="image/x-icon">
+
+<style>
+:root{
+  --naranja:#f88f32;
+  --verde:#3f8c4b;
+  --beige:#fff8ec;
+  --texto:#2b2b2b;
+  --sombra:rgba(0,0,0,.15);
+}
+body{
+  margin:0;
+  background:linear-gradient(160deg,var(--beige),#fff0d6,#f5f2e8);
+  color:var(--texto);
+  font-family:'Segoe UI',sans-serif;
+}
+nav{background:var(--beige);border-bottom:4px solid var(--naranja);box-shadow:0 3px 10px var(--sombra);}
+nav ul{list-style:none;display:flex;justify-content:center;padding:10px;}
+nav ul li a{color:var(--verde);padding:10px 15px;text-decoration:none;font-weight:600;border-radius:10px;transition:.3s;}
+nav ul li a:hover{background:var(--naranja);color:white;}
+.hero{text-align:center;background:linear-gradient(90deg,var(--verde),var(--naranja));color:white;padding:35px;margin:25px auto;border-radius:20px;width:min(900px,95%);box-shadow:0 8px 25px rgba(0,0,0,.2);}
+.section{width:min(1000px,95%);margin:30px auto;background:var(--beige);border-radius:18px;padding:25px;box-shadow:0 8px 20px rgba(0,0,0,.08);}
+.form-control,.form-select{border-radius:10px;border:2px solid #eee;margin-bottom:10px;}
+.form-control:focus{border-color:var(--verde);}
+.btn-pedir{background:var(--naranja);color:white;font-weight:600;border:none;border-radius:40px;padding:12px 20px;width:100%;transition:.3s;}
+.btn-pedir:hover{background:var(--verde);transform:translateY(-2px);}
+.img-mate{border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,.2);width:100%;height:300px;object-fit:cover;}
+footer{background:var(--beige);text-align:center;padding:15px;border-top:3px solid var(--naranja);}
+.social-icons a{color:var(--verde);margin:0 8px;font-size:1.5rem;transition:.3s;}
+.social-icons a:hover{color:var(--naranja);transform:scale(1.2);}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar-custom">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="NOSOTROS.HTML">Nosotros</a></li>
+    <li><a href="RECETAS.HTML">Recetas</a></li>
+    <li><a href="pideahora.html" class="active">Pide ahora</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" data-aos="fade-down">
+  <div class="hero-content">
+    <h2>Pide tu infusión favorita</h2>
+    <p>Sabor natural a un clic de distancia 🍵</p>
+  </div>
+</section>
+
+<!-- SECCIÓN DE PEDIDO -->
+<section class="section pedido" data-aos="zoom-in">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+
+      <!-- FORMULARIO -->
+      <div class="col-md-6" data-aos="fade-right">
+        <h3>Haz tu Pedido</h3>
+        <form class="pedido-form mt-3">
+          <input type="text" class="form-control" placeholder="Nombre completo" required>
+          <input type="tel" class="form-control" placeholder="Número de contacto" required>
+          <select class="form-select" required>
+            <option>Dirección de entrega</option>
+            <option>La Paz - Centro</option>
+            <option>El Alto - 16 de Julio</option>
+          </select>
+          <select class="form-select" required>
+            <option>Selecciona un producto</option>
+            <option>Té Negro Intenso</option>
+            <option>Mate de Manzanilla</option>
+            <option>Té de Coca</option>
+            <option>Mix Andino (Coca + Menta)</option>
+          </select>
+          <select class="form-select">
+            <option>Presentación</option>
+            <option>20 saquitos</option>
+            <option>100 g a granel</option>
+          </select>
+          <textarea class="form-control" rows="3" placeholder="Notas adicionales"></textarea>
+          <button type="submit" class="btn-pedir w-100 mt-3">Enviar Pedido</button>
+        </form>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="col-md-6" data-aos="fade-left">
+        <img src="imagenes/TE6.jpg" class="img-mate rounded-4 shadow-lg" alt="Mates naturales">
+        <p class="mt-3 text-center fst-italic">
+          “Desde la hoja hasta tu taza, el bienestar se infusiona naturalmente.”
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REDES SOCIALES -->
+<section class="section text-center" data-aos="fade-up">
+  <h3><i class="fa-solid fa-share-nodes me-2"></i>Conéctate con Nosotros</h3>
+  <p>Haz tu pedido o consulta directamente por nuestras redes sociales:</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="mailto:essenceaura@infusiones.bo"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>© 2025 VIDA SANA • Mates Medicinales Instantáneos</footer>
+
+<!-- ESTILOS -->
+<style>
+:root {
+  --verde: #00b86b;
+  --naranja: #ff9900;
+  --fondo: #fffaf3;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--fondo);
+  margin: 0;
+  color: #333;
+}
+
+/* NAVBAR */
+.navbar-custom {
+  background: linear-gradient(90deg, var(--verde), var(--naranja));
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-custom ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+}
+
+.navbar-custom li {
+  margin: 0 15px;
+}
+
+.navbar-custom a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar-custom a:hover, .navbar-custom a.active {
+  background: #fff;
+  color: var(--verde);
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('imagenes/TE6.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  border-bottom: 4px solid var(--verde);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.1rem;
+}
+
+/* SECCIONES */
+.section {
+  padding: 60px 20px;
+}
+
+.section h3 {
+  color: var(--verde);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.section p {
+  max-width: 750px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* FORMULARIO */
+.pedido-form input, .pedido-form select, .pedido-form textarea {
+  border: 1.5px solid var(--verde);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.pedido-form input:focus, .pedido-form select:focus, .pedido-form textarea:focus {
+  border-color: var(--naranja);
+  box-shadow: 0 0 8px rgba(255,153,0,0.4);
+  outline: none;
+}
+
+.btn-pedir {
+  background: linear-gradient(90deg, var(--verde), var(--naranja));
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-pedir:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(255,153,0,0.5);
+}
+
+/* IMAGEN */
+.img-mate {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.img-mate:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* REDES SOCIALES */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: var(--verde);
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--naranja);
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(255,153,0,0.5);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: linear-gradient(90deg, var(--verde), var(--naranja));
+  color: #fff;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  margin-top: 50px;
+}
+</style>
+
+
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+<!-- ICONOS -->
+<script src="https://kit.fontawesome.com/a2e0e6b2e0.js" crossorigin="anonymous"></script>
+<script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:1000,once:true});</script>
+</body>
+</html>
